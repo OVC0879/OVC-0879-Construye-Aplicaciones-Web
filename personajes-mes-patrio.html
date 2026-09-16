@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Patrio - Personajes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+        body { background-color: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .bandera-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            min-height: 100px;
+            position: relative;
+        }
+
+        .stripe-green { background-color: #006847; }
+        .stripe-white { background-color: #ffffff; }
+        .stripe-red   { background-color: #CE1126; }
+
+        .viva-texto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -2px -2px 4px rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #111;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .stripe-green .nav-link { color: #ffffff; }
+        .stripe-white .nav-link { color: #000000; }
+        .stripe-red .nav-link   { color: #ffffff; }
+
+        .nav-link:hover, .nav-link.active {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.18);
+        }
+        .stripe-white .nav-link:hover, .stripe-white .nav-link.active {
+            background-color: rgba(0, 0, 0, 0.10);
+        }
+
+        main { flex: 1; max-width: 1100px; width: 100%; margin: 30px auto; padding: 0 20px; }
+        .page-title { color: #006847; font-size: 2rem; margin-bottom: 25px; text-align: center; text-transform: uppercase; border-bottom: 3px solid #CE1126; padding-bottom: 8px; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #ffffff; border-radius: 8px; border-top: 5px solid #006847; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); text-align: center; }
+        .card.red-border { border-top-color: #CE1126; }
+        .card img { width: 160px; height: 200px; object-fit: cover; border-radius: 4px; border: 3px solid #006847; margin-bottom: 15px; }
+        .card.red-border img { border-color: #CE1126; }
+        .card h3 { color: #111; margin-bottom: 8px; }
+        .card p { color: #555; font-size: 0.95rem; text-align: left; }
+
+        footer { background-color: #222222; color: #ffffff; text-align: center; padding: 20px; margin-top: auto; border-top: 4px solid #006847; }
+        footer p { margin: 3px 0; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+    <div class="bandera-header">
+        <div class="stripe-green"></div>
+        <div class="stripe-white"></div>
+        <div class="stripe-red"></div>
+        <div class="viva-texto">¡Viva México!</div>
+    </div>
+
+    <nav>
+        <div class="nav-item stripe-green">
+            <a href="index.html" class="nav-link">Línea del tiempo</a>
+        </div>
+        <div class="nav-item stripe-white">
+            <a href="personajes.html" class="nav-link active">Personajes</a>
+        </div>
+        <div class="nav-item stripe-red">
+            <a href="datos_curiosos.html" class="nav-link">Datos curiosos</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2 class="page-title">Personajes Ilustres</h2>
+
+        <div class="cards-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/160x200?text=Miguel+Hidalgo" alt="Miguel Hidalgo">
+                <h3>Miguel Hidalgo y Costilla</h3>
+                <p><strong>"El Padre de la Patria".</strong> Cura erudito e impulsor del levantamiento armado con el estandarte de la Virgen de Guadalupe.</p>
+            </div>
+
+            <div class="card red-border">
+                <img src="https://via.placeholder.com/160x200?text=José+María+Morelos" alt="José María Morelos">
+                <h3>José María Morelos y Pavón</h3>
+                <p><strong>"El Siervo de la Nación".</strong> Estratega militar brillante que redactó Los Sentimientos de la Nación.</p>
+            </div>
+
+            <div class="card red-border">
+                <img src="https://via.placeholder.com/160x200?text=Josefa+Ortiz" alt="Josefa Ortiz">
+                <h3>Josefa Ortiz de Domínguez</h3>
+                <p><strong>"La Corregidora".</strong> Pieza clave de la conspiración de Querétaro; su aviso oportuno permitió iniciar el movimiento.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/160x200?text=Ignacio+Allende" alt="Ignacio Allende">
+                <h3>Ignacio Allende</h3>
+                <p>Capitán de las milicias realistas que se unió a la causa rebelde, principal organizador militar de la primera etapa.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/160x200?text=Vicente+Guerrero" alt="Vicente Guerrero">
+                <h3>Vicente Guerrero</h3>
+                <p>Líder insurgente en la etapa de resistencia que mantuvo viva la lucha en el sur y pactó la paz.</p>
+            </div>
+
+            <div class="card red-border">
+                <img src="https://via.placeholder.com/160x200?text=Leona+Vicario" alt="Leona Vicario">
+                <h3>Leona Vicario</h3>
+                <p><strong>"La Madre de la Patria".</strong> Periodista y financista de la causa insurgente. Transmitió información en código a los rebeldes.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Nombre del alumno:</strong> Ortega Villanueva César</p>
+        <p><strong>No. de control:</strong> 24308051280879</p>
+        <p><strong>Grupo:</strong> 5-J</p>
+    </footer>
+
+</body>
+</html>
