@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Patrio - Línea del Tiempo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f4f4; color: #333; line-height: 1.6; }
+      
+        header { background-color: #006847; color: white; padding: 30px 20px; text-align: center; border-bottom: 5px solid #CE1126; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+  
+        nav { background-color: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav ul li a { display: block; padding: 15px 25px; color: #006847; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { background-color: #CE1126; color: white; }
+
+  
+        main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        section { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        h2 { color: #006847; border-bottom: 2px solid #CE1126; padding-bottom: 8px; margin-bottom: 20px; }
+        
+        .timeline-item { margin-bottom: 20px; padding-left: 15px; border-left: 4px solid #006847; }
+        .timeline-item h3 { color: #CE1126; margin-bottom: 5px; }
+
+        footer { background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; border-top: 4px solid #006847; }
+        footer p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>¡Feliz Septiembre! - Mes Patrio</h1>
+        <p>Conmemoración de la Independencia de México</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Línea del Tiempo</a></li>
+            <li><a href="personajes.html">Personajes</a></li>
+            <li><a href="datos_curiosos.html">Datos Curiosos</a></li>
+        </ul>
+    </nav>
+
+  
+    <main>
+        <section>
+            <h2>Línea del Tiempo</h2>
+
+            <div class="timeline-item">
+                <h3>13 de Septiembre (1847)</h3>
+                <p><strong>Gesta Heroica de los Niños Héroes:</strong> Defensa del Castillo de Chapultepec frente a la invasión estadounidense.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>15 de Septiembre (1810)</h3>
+                <p><strong>El Grito de Dolores:</strong> Conmemoración del inicio de la lucha Independentista con el toque de campana y el grito de libertad.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>16 de Septiembre (1810)</h3>
+                <p><strong>Inicio de la Guerra de Independencia:</strong> Levantamiento en armas encabezado por Miguel Hidalgo.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>27 de Septiembre (1821)</h3>
+                <p><strong>Consumación de la Independencia:</strong> Entrada triunfante del Ejército Trigarante a la Ciudad de México.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>28 de Septiembre (1821)</h3>
+                <p><strong>Firma del Acta de Independencia:</strong> Redacción del documento formal que proclamó la soberanía del Imperio Mexicano.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p><strong>Ortega Villanueva César</strong></p>
+        <p><strong>24308051280879</strong></p>
+        <p><strong>5-J</strong></p>
+    </footer>
+
+</body>
+</html>
