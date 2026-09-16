@@ -5,37 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Patrio - Línea del Tiempo</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f4f4; color: #333; line-height: 1.6; }
-      
-        header { background-color: #006847; color: white; padding: 30px 20px; text-align: center; border-bottom: 5px solid #CE1126; }
-        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+        body { background-color: #f7f9f8; color: #222; }
 
-  
-        nav { background-color: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav ul li a { display: block; padding: 15px 25px; color: #006847; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        nav ul li a:hover, nav ul li a.active { background-color: #CE1126; color: white; }
+    
+        header { 
+            background: linear-gradient(135deg, #006847 0%, #004d34 100%); 
+            color: #ffffff; 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 6px solid #CE1126;
+        }
+        header h1 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 5px; }
 
-  
-        main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        section { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        h2 { color: #006847; border-bottom: 2px solid #CE1126; padding-bottom: 8px; margin-bottom: 20px; }
         
-        .timeline-item { margin-bottom: 20px; padding-left: 15px; border-left: 4px solid #006847; }
-        .timeline-item h3 { color: #CE1126; margin-bottom: 5px; }
+        nav { background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; display: flex; justify-content: center; border-bottom: 1px solid #e0e0e0; }
+        nav ul li a { 
+            display: block; 
+            padding: 16px 30px; 
+            color: #006847; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 4px solid transparent;
+        }
+        nav ul li a:hover, nav ul li a.active { 
+            color: #CE1126; 
+            border-bottom-color: #CE1126; 
+            background-color: #fcfcfc; 
+        }
 
-        footer { background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; border-top: 4px solid #006847; }
-        footer p { margin: 5px 0; }
+        
+        main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section-title { 
+            color: #006847; 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 4px; background: #CE1126; margin: 8px auto 0;
+        }
+
+    
+        .timeline-container { display: flex; flex-direction: column; gap: 20px; }
+        .timeline-card { 
+            background: #ffffff; 
+            border-left: 6px solid #006847; 
+            border-radius: 6px; 
+            padding: 20px 25px; 
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06); 
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .timeline-card:nth-child(even) { border-left-color: #CE1126; }
+        .date-badge { 
+            background-color: #006847; 
+            color: white; 
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            min-width: 160px;
+            text-align: center;
+        }
+        .timeline-card:nth-child(even) .date-badge { background-color: #CE1126; }
+        .event-info h3 { font-size: 1.2rem; color: #111; margin-bottom: 5px; }
+        .event-info p { color: #555; font-size: 0.98rem; }
+
+    
+        footer { 
+            background-color: #1a1a1a; 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 25px 20px; 
+            margin-top: 60px; 
+            border-top: 5px solid #006847;
+        }
+        footer p { margin: 4px 0; font-size: 0.95rem; color: #ccc; }
+        footer p strong { color: #fff; }
     </style>
 </head>
 <body>
 
-
     <header>
-        <h1>¡Feliz Septiembre! - Mes Patrio</h1>
-        <p>Conmemoración de la Independencia de México</p>
+        <h1>¡Feliz Septiembre!</h1>
+        <p>Conmemoración del Mes Patrio</p>
     </header>
+
     <nav>
         <ul>
             <li><a href="index.html" class="active">Línea del Tiempo</a></li>
@@ -44,43 +107,56 @@
         </ul>
     </nav>
 
-  
     <main>
-        <section>
-            <h2>Línea del Tiempo</h2>
-
-            <div class="timeline-item">
-                <h3>13 de Septiembre (1847)</h3>
-                <p><strong>Gesta Heroica de los Niños Héroes:</strong> Defensa del Castillo de Chapultepec frente a la invasión estadounidense.</p>
+        <h2 class="section-title">Línea del Tiempo</h2>
+        
+        <div class="timeline-container">
+            <div class="timeline-card">
+                <div class="date-badge">13 de Septiembre</div>
+                <div class="event-info">
+                    <h3>Gesta Heroica de los Niños Héroes</h3>
+                    <p>Defensa del Castillo de Chapultepec (1847) frente a la invasión estadounidense.</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <h3>15 de Septiembre (1810)</h3>
-                <p><strong>El Grito de Dolores:</strong> Conmemoración del inicio de la lucha Independentista con el toque de campana y el grito de libertad.</p>
+            <div class="timeline-card">
+                <div class="date-badge">15 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1810. El Grito de Dolores</h3>
+                    <p>Conmemoración del inicio de la lucha Independentista con el toque de campana y el grito de libertad.</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <h3>16 de Septiembre (1810)</h3>
-                <p><strong>Inicio de la Guerra de Independencia:</strong> Levantamiento en armas encabezado por Miguel Hidalgo.</p>
+            <div class="timeline-card">
+                <div class="date-badge">16 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1810. Inicio de la Guerra de Independencia</h3>
+                    <p>Levantamiento en armas encabezado por Miguel Hidalgo.</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <h3>27 de Septiembre (1821)</h3>
-                <p><strong>Consumación de la Independencia:</strong> Entrada triunfante del Ejército Trigarante a la Ciudad de México.</p>
+            <div class="timeline-card">
+                <div class="date-badge">27 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1821. Consumación de la Independencia</h3>
+                    <p>Entrada triunfante del Ejército Trigarante a la Ciudad de México.</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <h3>28 de Septiembre (1821)</h3>
-                <p><strong>Firma del Acta de Independencia:</strong> Redacción del documento formal que proclamó la soberanía del Imperio Mexicano.</p>
+            <div class="timeline-card">
+                <div class="date-badge">28 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1821. Firma del Acta de Independencia</h3>
+                    <p>Redacción del documento formal que proclamó la soberanía del Imperio Mexicano.</p>
+                </div>
             </div>
-        </section>
+        </div>
     </main>
 
-
     <footer>
-        <p><strong>Ortega Villanueva César</strong></p>
-        <p><strong>24308051280879</strong></p>
-        <p><strong>5-J</strong></p>
+        <p><strong>Nombre del alumno:</strong>Ortega Villanueva César</p>
+        <p><strong>No. de control:</strong>24308051280879</p>
+        <p><strong>Grupo:</strong>5-J</p>
     </footer>
 
 </body>
