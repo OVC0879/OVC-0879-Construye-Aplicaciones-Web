@@ -11,8 +11,7 @@
         .bandera-header {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            min-height: 120px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            min-height: 100px;
             position: relative;
         }
 
@@ -25,39 +24,48 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: #000000;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), -2px -2px 4px rgba(255, 255, 255, 0.8);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -2px -2px 4px rgba(255, 255, 255, 0.9);
             white-space: nowrap;
         }
 
         nav {
-            background-color: #1a1a1a;
-            border-bottom: 3px solid #CE1126;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #111;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-item {
             display: flex;
+            align-items: center;
             justify-content: center;
+            padding: 15px 10px;
         }
 
-        nav ul li a {
-            display: block;
-            padding: 15px 30px;
-            color: #ffffff;
+        .nav-link {
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            transition: background 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: transform 0.2s, background-color 0.2s;
         }
 
-        nav ul li a:hover, nav ul li a.active {
-            background-color: #006847;
-            color: #ffffff;
+        .stripe-green .nav-link { color: #ffffff; }
+        .stripe-white .nav-link { color: #000000; }
+        .stripe-red .nav-link   { color: #ffffff; }
+
+        .nav-link:hover, .nav-link.active {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.18);
+        }
+        .stripe-white .nav-link:hover, .stripe-white .nav-link.active {
+            background-color: rgba(0, 0, 0, 0.10);
         }
 
         main { flex: 1; max-width: 900px; width: 100%; margin: 30px auto; padding: 0 20px; }
@@ -83,11 +91,15 @@
     </div>
 
     <nav>
-        <ul>
-            <li><a href="index.html" class="active">Línea del tiempo</a></li>
-            <li><a href="personajes.html">Personajes</a></li>
-            <li><a href="datos_curiosos.html">Datos curiosos</a></li>
-        </ul>
+        <div class="nav-item stripe-green">
+            <a href="index.html" class="nav-link active">Línea del tiempo</a>
+        </div>
+        <div class="nav-item stripe-white">
+            <a href="personajes.html" class="nav-link">Personajes</a>
+        </div>
+        <div class="nav-item stripe-red">
+            <a href="datos_curiosos.html" class="nav-link">Datos curiosos</a>
+        </div>
     </nav>
 
     <main>
