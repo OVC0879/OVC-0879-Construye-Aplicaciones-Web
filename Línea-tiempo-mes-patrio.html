@@ -8,45 +8,56 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
         body { background-color: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
 
-        header { 
+        .bandera-header {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            min-height: 180px;
+            min-height: 120px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border-bottom: 2px solid #111;
-        }
-
-        .flag-stripe {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 10px;
-            text-align: center;
+            position: relative;
         }
 
         .stripe-green { background-color: #006847; }
         .stripe-white { background-color: #ffffff; }
         .stripe-red   { background-color: #CE1126; }
 
-        .nav-link {
+        .viva-texto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), -2px -2px 4px rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #CE1126;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 30px;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 6px;
-            transition: transform 0.2s, background 0.2s;
+            transition: background 0.3s;
         }
 
-        .stripe-green .nav-link { color: #ffffff; }
-        .stripe-white .nav-link { color: #000000; }
-        .stripe-red .nav-link   { color: #ffffff; }
-
-        .nav-link:hover, .nav-link.active {
-            transform: scale(1.05);
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-        .stripe-white .nav-link:hover, .stripe-white .nav-link.active {
-            background-color: rgba(0, 0, 0, 0.08);
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #006847;
+            color: #ffffff;
         }
 
         main { flex: 1; max-width: 900px; width: 100%; margin: 30px auto; padding: 0 20px; }
@@ -64,17 +75,20 @@
 </head>
 <body>
 
-    <header>
-        <div class="flag-stripe stripe-green">
-            <a href="index.html" class="nav-link active">Línea del tiempo</a>
-        </div>
-        <div class="flag-stripe stripe-white">
-            <a href="personajes.html" class="nav-link">Personajes</a>
-        </div>
-        <div class="flag-stripe stripe-red">
-            <a href="datos_curiosos.html" class="nav-link">Datos curiosos</a>
-        </div>
-    </header>
+    <div class="bandera-header">
+        <div class="stripe-green"></div>
+        <div class="stripe-white"></div>
+        <div class="stripe-red"></div>
+        <div class="viva-texto">¡Viva México!</div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Línea del tiempo</a></li>
+            <li><a href="personajes.html">Personajes</a></li>
+            <li><a href="datos_curiosos.html">Datos curiosos</a></li>
+        </ul>
+    </nav>
 
     <main>
         <h2 class="page-title">Línea del Tiempo</h2>
