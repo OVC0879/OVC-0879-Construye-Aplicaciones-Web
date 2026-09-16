@@ -144,6 +144,166 @@
             </div>
 
             <div class="timeline-card">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Patrio - Línea del Tiempo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+
+        /* Estructura Tripartita - Bandera de México */
+        body { 
+            background-color: #ffffff; 
+            color: #222; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 1. Franja Verde (Encabezado) */
+        header { 
+            background-color: #006847; 
+            color: #ffffff; 
+            padding: 35px 20px; 
+            text-align: center; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        header h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        header p { font-size: 1.1rem; opacity: 0.9; margin-top: 5px; }
+
+        /* Barra de Navegación Horizontal */
+        nav { background-color: #005036; border-top: 1px solid rgba(255,255,255,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; }
+        nav ul li a { 
+            display: block; 
+            padding: 15px 25px; 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s;
+        }
+        nav ul li a:hover, nav ul li a.active { 
+            background-color: #CE1126; 
+            color: #ffffff; 
+        }
+
+        /* 2. Franja Blanca (Cuerpo) */
+        main { 
+            flex: 1;
+            max-width: 950px; 
+            width: 100%;
+            margin: 40px auto; 
+            padding: 0 20px; 
+            background-color: #ffffff;
+        }
+
+        .section-title { 
+            color: #006847; 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 4px solid #CE1126;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .title-wrapper { text-align: center; }
+
+        /* Elementos de la Línea del Tiempo */
+        .timeline-container { display: flex; flex-direction: column; gap: 20px; }
+        .timeline-card { 
+            background: #f9f9f9; 
+            border: 2px solid #e0e0e0;
+            border-left: 8px solid #006847; 
+            border-radius: 6px; 
+            padding: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .timeline-card:nth-child(even) { border-left-color: #CE1126; }
+        .date-badge { 
+            background-color: #006847; 
+            color: white; 
+            padding: 10px 15px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            min-width: 150px;
+            text-align: center;
+        }
+        .timeline-card:nth-child(even) .date-badge { background-color: #CE1126; }
+        .event-info h3 { font-size: 1.2rem; color: #111; margin-bottom: 5px; }
+
+        /* 3. Franja Roja (Footer) */
+        footer { 
+            background-color: #CE1126; 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 25px 20px; 
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.15);
+        }
+        footer p { margin: 4px 0; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado (Verde) -->
+    <header>
+        <h1>¡Feliz Septiembre!</h1>
+        <p>Conmemoración del Mes Patrio</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Línea del Tiempo</a></li>
+            <li><a href="personajes.html">Personajes</a></li>
+            <li><a href="datos_curiosos.html">Datos Curiosos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cuerpo (Blanco) -->
+    <main>
+        <div class="title-wrapper">
+            <h2 class="section-title">Línea del Tiempo</h2>
+        </div>
+        
+        <div class="timeline-container">
+            <div class="timeline-card">
+                <div class="date-badge">13 de Septiembre</div>
+                <div class="event-info">
+                    <h3>Gesta Heroica de los Niños Héroes</h3>
+                    <p>Defensa del Castillo de Chapultepec (1847) frente a la invasión estadounidense.</p>
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <div class="date-badge">15 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1810. El Grito de Dolores</h3>
+                    <p>Conmemoración del inicio de la lucha Independentista con el toque de campana y el grito de libertad.</p>
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <div class="date-badge">16 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1810. Inicio de la Guerra de Independencia</h3>
+                    <p>Levantamiento en armas encabezado por Miguel Hidalgo.</p>
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <div class="date-badge">27 de Septiembre</div>
+                <div class="event-info">
+                    <h3>1821. Consumación de la Independencia</h3>
+                    <p>Entrada triunfante del Ejército Trigarante a la Ciudad de México.</p>
+                </div>
+            </div>
+
+            <div class="timeline-card">
                 <div class="date-badge">28 de Septiembre</div>
                 <div class="event-info">
                     <h3>1821. Firma del Acta de Independencia</h3>
@@ -153,6 +313,7 @@
         </div>
     </main>
 
+    
     <footer>
         <p><strong>Nombre del alumno:</strong>Ortega Villanueva César</p>
         <p><strong>No. de control:</strong>24308051280879</p>
