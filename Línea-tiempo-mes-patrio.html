@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!--Permite el uso de acentos y la letra ñ-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Patrio - Línea del Tiempo</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
         body { background-color: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-
+            /*Aqui estan los rectangulos que hacen que la parte de arriba tenga los coloderes de la bandera, siebndo la parte de diseño*/
         .bandera-header {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -15,10 +15,10 @@
             position: relative;
         }
 
-        .stripe-green { background-color: #006847; }
-        .stripe-white { background-color: #ffffff; }
-        .stripe-red   { background-color: #CE1126; }
-
+        .stripe-green { background-color: #006847; } /*Permite que se ponga el rectangulo de color verde*/
+        .stripe-white { background-color: #ffffff; } /*Permite que se ponga el rectangulo de color blanco*/
+        .stripe-red   { background-color: #CE1126; } /*Permite que se ponga el rectangulo de color rojo*/
+            /*Le da formato al texto qu esta en la parte de arriba del documento/pagina*/
         .viva-texto {
             position: absolute;
             top: 50%;
@@ -32,21 +32,21 @@
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -2px -2px 4px rgba(255, 255, 255, 0.9);
             white-space: nowrap;
         }
-
+                 /*Aqui se hace lo del diseño de la barra de navegacion*/
         nav {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border-bottom: 3px solid #111;
         }
-
+                /*Da especificamente el diseño en la barra de navegacion permitiento que los objetos o el interior de la barra este acomodado*/
         .nav-item {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 15px 10px;
         }
-
+            /*Da al formato del texto de la barra de navegacion*/
         .nav-link {
             text-decoration: none;
             font-size: 1.3rem;
@@ -56,9 +56,9 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-        .stripe-green .nav-link { color: #ffffff; }
-        .stripe-white .nav-link { color: #000000; }
-        .stripe-red .nav-link   { color: #ffffff; }
+        .stripe-green .nav-link { color: #ffffff; } /*Permite que se ponga el rectangulo de la barra de navegacion de color verde*/
+        .stripe-white .nav-link { color: #000000; } /*Permite que se ponga el rectangulo de la barra de navegacion de color blanco*/
+        .stripe-red .nav-link   { color: #ffffff; } /*Permite que se ponga el rectangulo de la barra de navegacion de color rojo*/
 
         .nav-link:hover, .nav-link.active {
             transform: scale(1.05);
@@ -67,7 +67,7 @@
         .stripe-white .nav-link:hover, .stripe-white .nav-link.active {
             background-color: rgba(0, 0, 0, 0.10);
         }
-
+            /*Da formato a todo el contenido de la pagina osea la linea del tiempo*/
         main { flex: 1; max-width: 900px; width: 100%; margin: 30px auto; padding: 0 20px; }
         .page-title { color: #006847; font-size: 2rem; margin-bottom: 25px; text-align: center; text-transform: uppercase; border-bottom: 3px solid #CE1126; padding-bottom: 8px; }
 
@@ -76,7 +76,7 @@
         .timeline-card:nth-child(even) { border-left-color: #CE1126; }
         .date-badge { background-color: #006847; color: white; padding: 10px 15px; border-radius: 4px; font-weight: bold; min-width: 150px; text-align: center; }
         .timeline-card:nth-child(even) .date-badge { background-color: #CE1126; }
-
+            /*Le da formato al pie de pagina o el footer*/
         footer { background-color: #222222; color: #ffffff; text-align: center; padding: 20px; margin-top: auto; border-top: 4px solid #006847; }
         footer p { margin: 3px 0; font-size: 0.95rem; }
     </style>
@@ -89,7 +89,7 @@
         <div class="stripe-red"></div>
         <div class="viva-texto">¡Viva México!</div>
     </div>
-
+        <!--Aqui es la barra de navegacion para poder cambiar con cada parte de la pagina, ya sea linea del tiempo, perosanjes o datos-->
     <nav>
         <div class="nav-item stripe-green">
             <a href="https://ovc0879.github.io/OVC-0879-Construye-Aplicaciones-Web/L%C3%ADnea-tiempo-mes-patrio.html" class="nav-link active">Línea del tiempo</a>
@@ -101,7 +101,7 @@
             <a href="https://ovc0879.github.io/OVC-0879-Construye-Aplicaciones-Web/personajes-mes-patrio.html" class="nav-link">Datos curiosos</a>
         </div>
     </nav>
-
+        <!--Aqui es donde viene todo lo de la linea del tiempo osea los rectangulos con info de cada fecha-->
     <main>
         <h2 class="page-title">Línea del Tiempo</h2>
         
@@ -147,7 +147,7 @@
             </div>
         </div>
     </main>
-
+        <!--Footer o pie de pagina con mis datos de Nombre, numero de control y grupo-->
     <footer>
         <p><strong>Nombre del alumno:</strong> Ortega Villanueva César</p>
         <p><strong>No. de control:</strong> 24308051280879</p>
