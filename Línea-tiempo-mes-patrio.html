@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <!--Permite el uso de acentos y la letra ñ-->
+    <meta charset="UTF-8"> <!-- Permite el uso de acentos y la letra ñ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Patrio - Línea del Tiempo</title>
     <style>
+        /* Estilos generales para reiniciar márgenes y definir la fuente base */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
         body { background-color: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-            /*Aqui estan los rectangulos que hacen que la parte de arriba tenga los coloderes de la bandera, siebndo la parte de diseño*/
+        
+        /* Contenedor principal de la franja tricolor superior */
         .bandera-header {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -15,10 +17,12 @@
             position: relative;
         }
 
-        .stripe-green { background-color: #006847; } /*Permite que se ponga el rectangulo de color verde*/
-        .stripe-white { background-color: #ffffff; } /*Permite que se ponga el rectangulo de color blanco*/
-        .stripe-red   { background-color: #CE1126; } /*Permite que se ponga el rectangulo de color rojo*/
-            /*Le da formato al texto qu esta en la parte de arriba del documento/pagina*/
+        /* Clases para los colores de la bandera mexicana en el encabezado */
+        .stripe-green { background-color: #006847; } /* Franja verde */
+        .stripe-white { background-color: #ffffff; } /* Franja blanca */
+        .stripe-red   { background-color: #CE1126; } /* Franja roja */
+        
+        /* Estilo y posicionamiento del texto central "¡Viva México!" */
         .viva-texto {
             position: absolute;
             top: 50%;
@@ -32,21 +36,24 @@
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -2px -2px 4px rgba(255, 255, 255, 0.9);
             white-space: nowrap;
         }
-                 /*Aqui se hace lo del diseño de la barra de navegacion*/
+
+        /* Diseño de la barra de navegación en cuadrícula de 3 columnas */
         nav {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border-bottom: 3px solid #111;
         }
-                /*Da especificamente el diseño en la barra de navegacion permitiento que los objetos o el interior de la barra este acomodado*/
+
+        /* Alineación y espaciado interno de los elementos de navegación */
         .nav-item {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 15px 10px;
         }
-            /*Da al formato del texto de la barra de navegacion*/
+
+        /* Estilo de los enlaces dentro de la barra de navegación */
         .nav-link {
             text-decoration: none;
             font-size: 1.3rem;
@@ -56,10 +63,12 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-        .stripe-green .nav-link { color: #ffffff; } /*Permite que se ponga el rectangulo de la barra de navegacion de color verde*/
-        .stripe-white .nav-link { color: #000000; } /*Permite que se ponga el rectangulo de la barra de navegacion de color blanco*/
-        .stripe-red .nav-link   { color: #ffffff; } /*Permite que se ponga el rectangulo de la barra de navegacion de color rojo*/
+        /* Colores de texto para los enlaces según la franja correspondiente */
+        .stripe-green .nav-link { color: #ffffff; } 
+        .stripe-white .nav-link { color: #000000; } 
+        .stripe-red .nav-link   { color: #ffffff; } 
 
+        /* Efecto al pasar el cursor o mantener activa una pestaña */
         .nav-link:hover, .nav-link.active {
             transform: scale(1.05);
             background-color: rgba(0, 0, 0, 0.18);
@@ -67,29 +76,34 @@
         .stripe-white .nav-link:hover, .stripe-white .nav-link.active {
             background-color: rgba(0, 0, 0, 0.10);
         }
-            /*Da formato a todo el contenido de la pagina osea la linea del tiempo*/
+
+        /* Estructura del contenido principal de la página */
         main { flex: 1; max-width: 900px; width: 100%; margin: 30px auto; padding: 0 20px; }
         .page-title { color: #006847; font-size: 2rem; margin-bottom: 25px; text-align: center; text-transform: uppercase; border-bottom: 3px solid #CE1126; padding-bottom: 8px; }
 
+        /* Contenedor y tarjetas individuales de la línea del tiempo */
         .timeline-container { display: flex; flex-direction: column; gap: 20px; }
         .timeline-card { background: #ffffff; border-left: 6px solid #006847; padding: 20px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); display: flex; align-items: center; gap: 20px; }
-        .timeline-card:nth-child(even) { border-left-color: #CE1126; }
+        .timeline-card:nth-child(even) { border-left-color: #CE1126; } /* Alterna el color de la barra izquierda en tarjetas pares */
         .date-badge { background-color: #006847; color: white; padding: 10px 15px; border-radius: 4px; font-weight: bold; min-width: 150px; text-align: center; }
-        .timeline-card:nth-child(even) .date-badge { background-color: #CE1126; }
-            /*Le da formato al pie de pagina o el footer*/
+        .timeline-card:nth-child(even) .date-badge { background-color: #CE1126; } /* Alterna el color de la insignia de fecha */
+
+        /* Estilo del pie de página (footer) */
         footer { background-color: #222222; color: #ffffff; text-align: center; padding: 20px; margin-top: auto; border-top: 4px solid #006847; }
         footer p { margin: 3px 0; font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado con los colores de la bandera de México -->
     <div class="bandera-header">
         <div class="stripe-green"></div>
         <div class="stripe-white"></div>
         <div class="stripe-red"></div>
         <div class="viva-texto">¡Viva México!</div>
     </div>
-        <!--Aqui es la barra de navegacion para poder cambiar con cada parte de la pagina, ya sea linea del tiempo, perosanjes o datos-->
+        
+    <!-- Barra de navegación para cambiar entre secciones -->
     <nav>
         <div class="nav-item stripe-green">
             <a href="https://ovc0879.github.io/OVC-0879-Construye-Aplicaciones-Web/L%C3%ADnea-tiempo-mes-patrio.html" class="nav-link active">Línea del tiempo</a>
@@ -101,11 +115,13 @@
             <a href="https://ovc0879.github.io/OVC-0879-Construye-Aplicaciones-Web/datos-curiosos-mes-patrio.html" class="nav-link">Datos curiosos</a>
         </div>
     </nav>
-        <!--Aqui es donde viene todo lo de la linea del tiempo osea los rectangulos con info de cada fecha-->
+        
+    <!-- Contenido principal: Eventos históricos organizados cronológicamente -->
     <main>
         <h2 class="page-title">Línea del Tiempo</h2>
         
         <div class="timeline-container">
+            <!-- Evento 1 -->
             <div class="timeline-card">
                 <div class="date-badge">13 de Septiembre</div>
                 <div>
@@ -114,6 +130,7 @@
                 </div>
             </div>
 
+            <!-- Evento 2 -->
             <div class="timeline-card">
                 <div class="date-badge">15 de Septiembre</div>
                 <div>
@@ -122,6 +139,7 @@
                 </div>
             </div>
 
+            <!-- Evento 3 -->
             <div class="timeline-card">
                 <div class="date-badge">16 de Septiembre</div>
                 <div>
@@ -130,6 +148,7 @@
                 </div>
             </div>
 
+            <!-- Evento 4 -->
             <div class="timeline-card">
                 <div class="date-badge">27 de Septiembre</div>
                 <div>
@@ -138,6 +157,7 @@
                 </div>
             </div>
 
+            <!-- Evento 5 -->
             <div class="timeline-card">
                 <div class="date-badge">28 de Septiembre</div>
                 <div>
@@ -147,7 +167,8 @@
             </div>
         </div>
     </main>
-        <!--Footer o pie de pagina con mis datos de Nombre, numero de control y grupo-->
+      
+    <!-- Pie de página con los datos del alumno -->
     <footer>
         <p><strong>Nombre del alumno:</strong> Ortega Villanueva César</p>
         <p><strong>No. de control:</strong> 24308051280879</p>
