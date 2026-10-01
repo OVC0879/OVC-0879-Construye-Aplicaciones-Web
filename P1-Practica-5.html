@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Horario 5-J - CBTIS 128</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .receso {
+      background-color: #eaeaea;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
   <h1 align="Center">Centro de Bachillerato Tecnico Industrial y de Servicios #128</h1>
   <h3 align="Center">Horario 5-J</h3>
-<table>
-  <tr>
-    <th>Hora</th>
-    <th>Lunes</th>
-    <th>Martes</th>
-    <th>Miercoles</th>
-    <th>Jueves</th>
-    <th>Viernes</th>
-  </tr>
-  <tr>
-    <th>7:00 - 8:00</th>
-    <th></th>
-    <th>5* CH 2 Juarez AULA 38</th>
-    <th>5* Apil. Adm Estrada AULA 38</th>
-    <th>5* Apil. Adm Estrada AULA 38</th>
-    <th>5* Ingles Trreanzas AULA 38</th>
-  </tr>
-  <tr>
-    <th>8:00 - 9:00</th>
-    <th></th>
-    <th>5* Apil. Adm Estrada AULA 38</th>
-    <th>5* CH 2 Juarez AULA 38</th>
-    <th>5* Ingles Trreanzas AULA 38</th>
-    <th>5* CH 2 Juarez AULA 38</th>
-  </tr>
+  
+  <table>
     <tr>
-    <th>9:00 - 10:00</th>
-    <th>5* Ingles Trreanzas AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-  </tr>
+      <th>Hora</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+    </tr>
     <tr>
-    <th>10:00 - 10:50</th>
-    <th>5* CENyT 5 Reyes AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-    <th>5* Ingles Trreanzas AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-    <th>PROG M4S1 Meza AULA 38</th>
-  </tr>
+      <th>7:00 - 8:00</th>
+      <td></td>
+      <td>5* CH 2 Juarez AULA 38</td>
+      <td rowspan="2">5* Apil. Adm Estrada AULA 38</td>
+      <td rowspan="2">5* Apil. Adm Estrada AULA 38</td>
+      <td>5* Ingles Trreanzas AULA 38</td>
+    </tr>
     <tr>
-    <th> </th>
-    <th>Receso</th>
-  </tr>
+      <th>8:00 - 9:00</th>
+      <td></td>
+      <td>5* Apil. Adm Estrada AULA 38</td>
+      <td>5* CH 2 Juarez AULA 38</td>
+      <td>5* CH 2 Juarez AULA 38</td>
+    </tr>
     <tr>
-    <th>11:10 - 12:00</th>
-    <th>PROG M4S2 Gonzales A AULA 38</th>
-    <th>PROG M4S2 Gonzales A AULA 38</th>
-    <th>5* CENyT 5 Reyes AULA 38</th>
-    <th>PROG M4S2 Gonzales A AULA 38</th>
-    <th>5* CENyT 5 Reyes AULA 38</th>
-  </tr>
+      <th>9:00 - 10:00</th>
+      <td>5* Ingles Trreanzas AULA 38</td>
+      <td rowspan="2">PROG M4S1 Meza AULA 38</td>
+      <td>PROG M4S1 Meza AULA 38</td>
+      <td rowspan="2">PROG M4S1 Meza AULA 38</td>
+      <td rowspan="2">PROG M4S1 Meza AULA 38</td>
+    </tr>
     <tr>
-    <th>12:00 - 13:00</th>
-    <th>5* FS Meza AULA 38</th>
-    <th>5* Ingles Trreanzas AULA 38</th>
-    <th>5* CENyT 5 Reyes AULA 38</th>
-    <th>PROG M4S2 Gonzales A AULA 38</th>
-    <th>PROG M4S2 Gonzales A AULA 38</th>
-  </tr>
+      <th>10:00 - 10:50</th>
+      <td>5* CENyT 5 Reyes AULA 38</td>
+      <td>5* Ingles Trreanzas AULA 38</td>
+    </tr>
     <tr>
-    <th>13:00 - 14:00</th>
-    <th>5* TSdM 2 Macias AULA 38</th>
-    <th>5* TSdM 2 Macias AULA 38</th>
-    <th>5* TSdM 2 Macias AULA 38</th>
-    <th>5* TSdM 2 Macias AULA 38</th>
-    <th>5* TSdM 2 Macias AULA 38</th>
-  </tr>
-</table>
+      <th>-</th>
+      <td colspan="6" class="receso">Receso</td>
+    </tr>
+    <tr>
+      <th>11:10 - 12:00</th>
+      <td rowspan="2">PROG M4S2 Gonzales A AULA 38</td>
+      <td>PROG M4S2 Gonzales A AULA 38</td>
+      <td rowspan="2">5* CENyT 5 Reyes AULA 38</td>
+      <td rowspan="2">PROG M4S2 Gonzales A AULA 38</td>
+      <td rowspan="2">5* CENyT 5 Reyes AULA 38</td>
+    </tr>
+    <tr>
+      <th>12:00 - 13:00</th>
+      <td>5* Ingles Trreanzas AULA 38</td>
+    </tr>
+    <tr>
+      <th>13:00 - 14:00</th>
+      <td>5* TSdM 2 Macias AULA 38</td>
+      <td>5* TSdM 2 Macias AULA 38</td>
+      <td>5* TSdM 2 Macias AULA 38</td>
+      <td>5* TSdM 2 Macias AULA 38</td>
+      <td>5* TSdM 2 Macias AULA 38</td>
+    </tr>
+  </table>
+</body>
 </html>
