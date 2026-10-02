@@ -18,19 +18,23 @@ esta actividad se delega a traves de un lenguaje que se ejecute en el servidor (
 ASP, ASP.NET, Node, etc.)
 </p>
 <h2>Ejemplo basico</h2>
-<form action="" method="post">
-Ingresa tu nombre:
+<form action="" method="post"> 
+  <!-- El <forms> se usa para crear un formulario-->
+  <!-- El action se usa para indicar la url-->
+  <!-- El method="post" se usa para enviar los datos de forma segura-->
 <input type="text" name="nombre" size="20">
+<!--  <input type="text"> Crea una caja de texto de una sola línea para ingresar datos como nombres o usuarios -->
 <br>
-<input type="submit" value="enviar">
+<input type="submit" value="enviar"> 
+  <!--<input type="submit"> crea unotón que envía los datos del formulario-->
 </form>
 <h2>Formulario para contraseñas</h2>
-<form action="" method="post">
+<form action="" method="post"> 
 
 Ingresa tu usuario:
 <input type="text" name="usuario">
 Ingresa tu contraseña:
-<input type="password" name="pass">
+<input type="password" name="pass"> <!--<input type="password"> Oculta los caracteres con asteriscos o puntos mientras el usuario escribe su contraseña-->
 <br>
 <input type="submit" value="enviar">
 <input type="reset" value="borrar">
@@ -41,7 +45,7 @@ Ingresa tu nombre:
 <input type="text" name="nombre">
 <br>
 Ingresa tu correo:
-<input type="email" name="correo">
+<input type="email" name="correo"> <!--<input type="email">: Campo de texto optimizado para correos electrónicos-->
 <br>
 Ingresa tus comentarios:
 <textarea name="comentarios" rows="1" cols="10"></textarea>
