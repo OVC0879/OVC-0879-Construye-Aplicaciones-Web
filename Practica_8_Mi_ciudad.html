@@ -4,8 +4,6 @@
      <meta charset="UTF-8">
     <title>Mi Ciudad Juarez</title>
     <style>
-      .navegacion {
-      }
         nav {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -29,6 +27,9 @@
             padding: 8px 16px;
             border-radius: 6px;
             transition: transform 0.2s, background-color 0.2s;
+        }
+      .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+      .card { background: #ffffff; border-radius: 8px; border-top: 5px solid #006847; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); text-align: center; }
     </style>
   </head>
   <body>
@@ -49,6 +50,26 @@
       <div class="nav-item">
         <a class="nav-link">Cultura</a>
       </div>
+   
+       
+      <h2>Historia</h2>
+      <div class="cards-grid">
+        <div class="card">
+         <p>Originalmente llamada Paso del Norte, recibió su actual nombre en 1888 en honor a Benito Juárez, quien se refugiara en la ciudad durante la Segunda Intervención Francesa. <br/>
+           Juárez es junto a la ciudad de Chihuahua, una de las ciudades del norte del país con mayor relevancia histórica para la nación; por ejemplo, la ciudad ha sido en más de una ocasión la capital provisional de la República bajo los mandatos de los presidentes Benito Juárez, Francisco I. Madero y Venustiano Carranza, e igualmente, cuartel del General Francisco Villa.<br/>
+           Debido a la gran cantidad de empresas maquiladoras que posee, la ciudad es, junto a las ciudades de Monterrey y Tijuana, uno de los tres puntos industriales más importantes del norte de México.</p> 
+        </div>  
+        <div class="card">
+          <p>La región donde hoy se ubica Ciudad Juárez fue habitada desde los tardíos 1500 casi 100 años antes del año que se denomina su fundación. La región fungía como puesto de avanzada y barracas para los conquistadores españoles. <br/>
+             En 1595, con el permiso del rey Felipe II de España, se iniciaron la exploraciones españolas para colonizar el territorio de Nuevo México, y en 1598 el explorador Juan de Oñate reclamó para el Virreinato de Nueva España la posesión de los territorios más allá del Río Bravo (el río Grande para los estadounidenses) llamando al punto de cruce como Paso del Norte (actualmente lugar en donde se ubican las ciudades fronterizas de El Paso y Ciudad Juárez).<br/>
+             En 1659, el fraile franciscano Fray García de San Francisco fundó lo que hoy es tanto Ciudad Juárez como El Paso, Texas, con el nombre de Misión de Nuestra Señora de Guadalupe de Mansos del Paso del Río del Norte, y construyó la misión de Guadalupe, que hoy se encuentra ubicada junto a la Catedral de Ciudad Juárez.</p>
+        </div>
+        <div class="card">
+          <p>Como en el resto de lo que conocemos hoy son los estados de Chihuahua y Nuevo México el movimiento de independencia que había estallado en el Bajío tuvo pocas o nulas repercusiones en la zona, aun en 1811 cuando Miguel Hidalgo y los principales caudillos del movimiento fueron fusilados en la hoy capital del estado; al triunfo del movimiento independentista en 1821 liderado por Vicente Guerrero y Agustín de Iturbide toda la provincia se unió a él y al consolidarse la república federal en 1824 y ser constituido el 6 de julio del mismo año, el nuevo estado de Chihuahua Paso del Norte fue incluido en él.<br/>
+             La primera constitución del estado de Chihuahua fue promulgada el 9 de diciembre de 1826 y el 5 de enero de 1826 Paso del Norte quedó constituida como cabecera de uno de los 11 partidos en que se dividió al estado.11​ Durante todas las primeras décadas de vida independiente la villa de El Paso se dedicó fundamentalmente al intercambio comercial con Nuevo México y fue famosa por el cultivo que en su entorno se daba de vid, cuya abundancia fue uno de los principales motivos de desarrollo de la zona.<br/>
+             En 1836, con el cambio del régimen federal por el centralista, el Paso del Norte dejó de ser cabecera de partido para serlo de Distrito, uno de los tres en que se dividió el ahora llamado Departamento de Chihuahua.</p>
+        </div>
+      </div>  
     </nav>
   </body>
 </html>
