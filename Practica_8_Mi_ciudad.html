@@ -3,24 +3,51 @@
   <head>
      <meta charset="UTF-8">
     <title>Mi Ciudad Juarez</title>
+    <style>
+      .navegacion {
+      }
+        nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #111;
+        }
+
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 10px;
+        }
+
+      
+        .nav-link {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: transform 0.2s, background-color 0.2s;
+    </style>
   </head>
   <body>
     <h1 align="center">Mi Ciudad Juarez</h1>
     <nav>
-      <div style="display: flex; align-items: center; justify-content: center; padding: 15px 10px;">
-        <a sytle="text-decoration: none; font-size: 1.3rem; font-weight: bold; padding: 8px 16px; border-radius: 6px;">Historia</a>
+      <div class="nav-item">
+        <a class="nav-link">Historia</a>
       </div>
-      <div style="display: flex; align-items: center; justify-content: center; padding: 15px 10px;">
-        <a sytle="text-decoration: none; font-size: 1.3rem; font-weight: bold; padding: 8px 16px; border-radius: 6px;">Sitios turisticos</a>
+      <div class="nav-item">
+        <a class="nav-link">Sitios turisticos</a>
       </div>
-      <div><div style="display: flex; align-items: center; justify-content: center; padding: 15px 10px;">
-        <a sytle="text-decoration: none; font-size: 1.3rem; font-weight: bold; padding: 8px 16px; border-radius: 6px;">Comida</a>
+      <div class="nav-item">
+        <a class="nav-link">Comida</a>
       </div>
-      <div style="display: flex; align-items: center; justify-content: center; padding: 15px 10px;">
-        <a sytle="text-decoration: none; font-size: 1.3rem; font-weight: bold; padding: 8px 16px; border-radius: 6px;">leyendas o mitos</a>
+      <div class="nav-item">
+        <a class="nav-link">leyendas o mitos</a>
       </div>
-      <div style="display: flex; align-items: center; justify-content: center; padding: 15px 10px;">
-        <a sytle="text-decoration: none; font-size: 1.3rem; font-weight: bold; padding: 8px 16px; border-radius: 6px;">Cultura</a>
+      <div class="nav-item">
+        <a class="nav-link">Cultura</a>
       </div>
     </nav>
   </body>
