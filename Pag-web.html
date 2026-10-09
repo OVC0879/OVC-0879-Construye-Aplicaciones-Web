@@ -293,4 +293,311 @@
             font-weight: 900;
             padding: 14px 30px;
             border: none;
-            border-radius: 30
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(217, 83, 30, 0.4);
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Toast de notificación */
+        #notification {
+            display: none;
+            background-color: #2a9d8f;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 25px 20px;
+            margin-top: 40px;
+            font-weight: 700;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-img-container img {
+                height: 250px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 3px 0;
+            }
+
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Mi ciudad Juárez</h1>
+        <div class="header-img-container">
+            <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80" alt="Atardecer en el desierto de Ciudad Juárez">
+        </div>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav>
+        <ul>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#turismo">Sitios Turísticos</a></li>
+            <li><a href="#gastronomia">Comidas Típicas</a></li>
+            <li><a href="#leyendas">Leyendas</a></li>
+            <li><a href="#cultura">Cultura</a></li>
+            <li><a href="#formulario">Encuesta</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- HISTORIA -->
+        <section id="historia">
+            <h2>Historia de la Ciudad</h2>
+            <h3>La frontera heroica de México</h3>
+            <p>
+                Ciudad Juárez fue fundada en 1659 por el fraile español García de San Francisco con el nombre de <strong>El Paso del Norte</strong>. Debido a su ubicación estratégica a orillas del Río Bravo, pronto se convirtió en un punto crucial para el comercio y el tránsito entre el centro de México y el norte del continente.
+            </p>
+            <p>
+                En 1888, la ciudad cambió oficialmente su nombre a <strong>Ciudad Juárez</strong> en honor a Benito Juárez, quien estableció su gobierno provisional aquí durante la intervención francesa. Durante la Revolución Mexicana, la ciudad fue escenario de trascendentales batallas lideradas por figuras legendarias como Francisco Villa. Hoy en día, Juárez es una metrópoli industrial vibrante, hospitalaria yllena de resiliencia.
+            </p>
+        </section>
+
+        <!-- SITIOS TURÍSTICOS -->
+        <section id="turismo">
+            <h2>Sitios Turísticos</h2>
+            <h3>Descubre los rincones más icónicos</h3>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80" alt="Plaza de la X">
+                    <div class="card-content">
+                        <h3>Plaza de la X</h3>
+                        <p>Oficialmente llamada Plaza de la Mexicanidad, alberga la monumental escultura roja de la "X" creada por el artista Sebastián, símbolo de la fusión cultural de nuestra frontera.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="Dunas de Samalayuca">
+                    <div class="card-content">
+                        <h3>Dunas de Samalayuca</h3>
+                        <p>Un majestuoso mar de arena fina de cuarzo ubicado al sur de la ciudad. Ideal para deportes de aventura como el sandboard, recorridos en 4x4 o admirar mágicos atardeceres.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1548625361-1811e549eb93?auto=format&fit=crop&w=600&q=80" alt="Catedral de Ciudad Juárez">
+                    <div class="card-content">
+                        <h3>Catedral de Nuestra Señora de Guadalupe</h3>
+                        <p>Ubicada en el corazón del centro histórico, destaca por su arquitectura neocLásica y por encontrarse a un costado de la histórica Misión fundacional de 1659.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=600&q=80" alt="MUREF">
+                    <div class="card-content">
+                        <h3>MUREF (Museo de la Revolución)</h3>
+                        <p>Antiguo edificio de la Ex-Aduana Ciudadana, un histórico espacio arquitectónico donde se exhibe la rica memoria de los movimientos revolucionarios en la frontera.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMIDAS TÍPICAS Y TABLA DE INGREDIENTES -->
+        <section id="gastronomia">
+            <h2>Comidas Originales de Juárez</h2>
+            <h3>Nuestra gastronomía auténtica y fronteriza</h3>
+            <p>
+                Ciudad Juárez ha dado al mundo platillos legendarios. A continuación presentamos las comidas y bebidas nacidas o perfeccionadas en esta tierra con sus ingredientes principales:
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platillo / Bebida</th>
+                            <th>Descripción Típica</th>
+                            <th>Ingredientes Principales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Los Burritos</strong></td>
+                            <td>El auténtico burrito fronterizo enrollado con tortilla de harina recién hecha.</td>
+                            <td>Tortilla de harina de trigo, guisados (deshebrada con chile verde, asado de puerco, frijoles con queso, chicharrón).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Margarita</strong></td>
+                            <td>Coctel mundialmente famoso inventado en el histórico Bar Kentucky de Juárez.</td>
+                            <td>Tequila, licor de naranja (Cointreau/Triple Sec), jugo de limón fresco, hielo y sal en el ribete de la copa.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flautas en Vaso</strong></td>
+                            <td>Tacos dorados servidos verticalmente dentro de un vaso grande bañados en abundante salsa verde.</td>
+                            <td>Tortilla de maíz, carne deshebrada de res o pollo, crema, queso fresco, aguacate y crema/salsa verde verde de tomate.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Asado de Puerco</strong></td>
+                            <td>Tradicional guisado festivo con sabor profundo y especiado.</td>
+                            <td>Carne de cerdo, chile colorado (chile ancho y guajillo), ajo, comino, orégano y cáscara de naranja.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- LEYENDAS Y MITOS -->
+        <section id="leyendas">
+            <h2>Leyendas y Mitos Juárez</h2>
+            <h3>Misterios del imaginario fronterizo</h3>
+            
+            <div class="legend-box">
+                <h3>El Diablo en el Palenque / Discoteca Malibú</h3>
+                <p>
+                    Una de las leyendas urbanas más arraigadas en Ciudad Juárez ocurrió a finales de los años 80 y principios de los 90. Cuentan los habitantes que en el concurrido centro nocturno <strong>Malibú</strong> (asociado en la memoria colectiva al ambiente de fiesta y palenques), se presentó una noche un hombre sumamente atractivo, vistiendo un elegante traje negro y bailando de forma hipnotizante.
+                </p>
+                <p>
+                    Todas las miradas estaban puestas en él mientras bailaba con una joven del lugar. De pronto, la temperatura del recinto comenzó a elevarse dramáticamente y un fuerte olor a azufre invadió la pista. Cuando las personas miraron hacia los pies del sujeto, notaron horrorizadas que una de sus extremidades no era humana, sino que tenía la forma de una <strong>pata de gallo o pezuña de chivo</strong>.
+                </p>
+                <p>
+                    En ese instante, las luces parpadearon, se escuchó un estruendo y el recinto entró en pánico. Aunque muchos afirman que fue una leyenda para ahuyentar a los jóvenes de la vida nocturna, aún hoy en día los juarenses recuerdan la famosa historia del día que el Diablo bailó en Juárez.
+                </p>
+            </div>
+        </section>
+
+        <!-- CULTURA -->
+        <section id="cultura">
+            <h2>Cultura Juarense</h2>
+            <h3>Identidad, música y arte urbano</h3>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Juan Gabriel "El Divo de Juárez"</h3>
+                        <p>Aunque nació en Michoacán, Alberto Aguilera Valadez adoptó a Juárez como su hogar y la ciudad lo adoptó a él. Su música llevó el nombre de Juárez por todo el mundo, inmortalizando lugares como el Noa Noa.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Cultura Pachuco y Zoot Suit</h3>
+                        <p>Juárez guarda una estrecha relación con la cultura pachuco de mediados del siglo XX, una manifestación de identidad fronteriza y resistencia cultural que fue popularizada por figuras inolvidables como Germán Valdés "Tin Tan".</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Espíritu Hospitalario y Resiliente</h3>
+                        <p>La cultura de Cd. Juárez destaca por la calidez de su gente. Al ser una frontera viva con constante flujo migratorio, es una ciudad abierta, de trabajo duro en la maquiladora y solidaridad comunitaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section id="formulario">
+            <h2>Formulario sobre Juárez</h2>
+            <h3>¡Queremos conocer tu opinión sobre nuestra ciudad!</h3>
+
+            <form id="juarezForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="visita">¿Has visitado Ciudad Juárez?</label>
+                    <select id="visita" name="visita" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="vivo-aqui">Vivo en Cd. Juárez</option>
+                        <option value="si">Sí, he visitado</option>
+                        <option value="no">No, pero me gustaría</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="favorito">¿Qué sección te pareció más interesante?</label>
+                    <select id="favorito" name="favorito">
+                        <option value="historia">Historia de la ciudad</option>
+                        <option value="turismo">Sitios Turísticos</option>
+                        <option value="comidas">Comidas Típicas (Burritos, etc.)</option>
+                        <option value="leyendas">Leyenda del Diablo en el Malibú</option>
+                        <option value="cultura">Cultura Juarense</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comentarios">Comentarios o recuerdos de Juárez:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí tu opinión..."></textarea>
+                </div>
+
+                <button type="submit">Enviar Registro</button>
+            </form>
+
+            <div id="notification">
+                ¡Gracias por tus comentarios sobre Ciudad Juárez! Tu respuesta ha sido registrada con éxito.
+            </div>
+        </section>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Mi Ciudad Juárez - Frontera de Luz y Tradición</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('juarezForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            
+            // Limpiar el formulario
+            this.reset();
+
+            // Ocultar la notificación después de 5 segundos
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+
