@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URN - Universidad Regional del Norte | Campus Chihuahua</title>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variables de color y fuentes */
+        :root {
+            --primary: #4a154b;
+            --primary-dark: #2d0b30;
+            --primary-light: #6b21a8;
+            --accent: #9333ea;
+            --gold: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #f3f4f6;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* BARRA DE NAVEGACIÓN PERMANENTE (STICKY/FIXED) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Elementos a la izquierda */
+        .nav-links-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0.3rem;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Texto a la derecha "URN UNIVERSIDAD" */
+        .brand-right {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-right span {
+            color: var(--gold);
+        }
+
+        /* Menú hamburguesa para dispositivos móviles */
+        .mobile-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* SECCIÓN HERO (IMAGEN MORADA CON "CAMPUS CHIHUAHUA") */
+        #inicio {
+            margin-top: 60px; /* Compensación por la barra fija */
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(74, 21, 75, 0.92), rgba(107, 33, 168, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-dark);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+            background-color: #ffffff;
+        }
+
+        /* ESTILOS DE SECCIONES GENERALES */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* SECCIÓN POR QUÉ URN */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem 1.8rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        /* SECCIÓN LICENCIATURAS Y POSGRADOS */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .program-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-body {
+            padding: 1.8rem;
+        }
+
+        .program-tag {
+            background: rgba(147, 51, 234, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .program-body h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .program-body p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* SECCIÓN CAMPUS CHIHUAHUA */
+        .campus-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .campus-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .campus-info p {
+            margin-bottom: 1.2rem;
+            color: #4b5563;
+        }
+
+        .campus-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .campus-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .campus-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* SERVICIOS ESCOLARES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-box {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-box i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-box:hover {
+            border-color: var(--accent);
+            background: #faf5ff;
+        }
+
+        /* UNIDADES / OTROS CAMPUS */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .unit-card {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 1.8rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .unit-card:hover {
+            background: var(--primary-light);
+            transform: translateY(-4px);
+        }
+
+        .unit-card i {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+        }
+
+        /* CONTACTO */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-form input, 
+        .contact-form textarea, 
+        .contact-form select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .contact-form button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--primary-light);
+        }
+
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 45px;
+            height: 45px;
+            background: rgba(147, 51, 234, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 2.5rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-credits {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .campus-container, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                gap: 1.8rem;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-links-container">
+                <div class="mobile-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-ul">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#porque-urn">¿Por qué URN?</a></li>
+                    <li><a href="#licenciaturas">Licenciaturas</a></li>
+                    <li><a href="#posgrados">Posgrados</a></li>
+                    <li><a href="#campus">Campus</a></li>
+                    <li><a href="#servicios">Servicios Escolares</a></li>
+                    <li><a href="#unidades">Unidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <!-- Marca alineada totalmente a la derecha -->
+            <a href="#inicio" class="brand-right">
+                <i class="fas fa-graduation-cap"></i> URN <span>UNIVERSIDAD</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN HERO CON FONDO MORADO DE LA UNIVERSIDAD -->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1 class="hero-title">Campus Chihuahua</h1>
+            <p class="hero-subtitle">Universidad Regional del Norte - Formando líderes con excelencia educativa y valores</p>
+            <a href="#contacto" class="hero-btn">Solicita Informes <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ URN? -->
+    <section id="porque-urn">
+        <div class="section-header">
+            <h2>¿Por qué la URN?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-award"></i></div>
+                <h3>Calidad Académica</h3>
+                <p>Programas de estudio actualizados con reconocimiento oficial (RVOE) adaptados a la demanda laboral real.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Docentes Expertos</h3>
+                <p>Aprende de profesores con amplia trayectoria profesional en las áreas que imparten.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>Flexibilidad Horaria</h3>
+                <p>Opciones presenciales, semi-presenciales y ejecutivas diseñadas para estudiar y trabajar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LICENCIATURAS -->
+    <section id="licenciaturas">
+        <div class="section-header">
+            <h2>Licenciaturas</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="program-body">
+                    <span class="program-tag">Administración</span>
+                    <h3>Lic. en Administración de Empresas</h3>
+                    <p>Aprende a dirigir organizaciones de alto rendimiento con visión internacional.</p>
+                    <a href="#contacto" class="btn-outline">Ver Plan de Estudios</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="program-body">
+                    <span class="program-tag">Leyes</span>
+                    <h3>Licenciatura en Derecho</h3>
+                    <p>Formación sólida en ciencias jurídicas con enfoque en juicios orales.</p>
+                    <a href="#contacto" class="btn-outline">Ver Plan de Estudios</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="program-body">
+                    <span class="program-tag">Tecnología</span>
+                    <h3>Ing. en Sistemas Computacionales</h3>
+                    <p>Desarrolla software, gestiona redes e implementa soluciones de inteligencia artificial.</p>
+                    <a href="#contacto" class="btn-outline">Ver Plan de Estudios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POSGRADOS -->
+    <section id="posgrados">
+        <div class="section-header">
+            <h2>Posgrados</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="program-body">
+                    <span class="program-tag">Maestría</span>
+                    <h3>Maestría en Administración</h3>
+                    <p>Especialízate en toma de decisiones estratégicas y liderazgo corporativo.</p>
+                    <a href="#contacto" class="btn-outline">Más Información</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="program-body">
+                    <span class="program-tag">Maestría</span>
+                    <h3>Maestría en Derecho Fiscal</h3>
+                    <p>Domina las normativas tributarias y la defensa fiscal en el ámbito empresarial.</p>
+                    <a href="#contacto" class="btn-outline">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS CHIHUAHUA -->
+    <section id="campus">
+        <div class="section-header">
+            <h2>Campus Chihuahua</h2>
+        </div>
+        <div class="campus-container">
+            <div class="campus-info">
+                <h3>Instalaciones Modernas en la Capital</h3>
+                <p>Nuestras instalaciones en Chihuahua ofrecen un entorno académico equipado con la última tecnología, laboratorios de cómputo, biblioteca física y digital, salas de simulación y espacios recreativos.</p>
+                <p>Diseñadas para brindar una experiencia integral donde el estudiante pueda desarrollarse personal y profesionalmente.</p>
+            </div>
+            <div class="campus-gallery">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Aula URN">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Campus URN">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Biblioteca">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Estudiantes URN">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS ESCOLARES -->
+    <section id="servicios">
+        <div class="section-header">
+            <h2>Servicios Escolares</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fas fa-id-card"></i>
+                <h3>Inscripciones</h3>
+                <p>Trámites de ingreso e historial académico.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Constancias</h3>
+                <p>Expedición de documentos con validez oficial.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-certificate"></i>
+                <h3>Titulación</h3>
+                <p>Asesoría en procesos y opciones de graduación.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Becas URN</h3>
+                <p>Programas de apoyo económico por desempeño.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIDADES -->
+    <section id="unidades">
+        <div class="section-header">
+            <h2>Nuestras Unidades</h2>
+        </div>
+        <div class="units-grid">
+            <div class="unit-card">
+                <i class="fas fa-building"></i>
+                <h3>Chihuahua</h3>
+                <p>Campus Principal</p>
+            </div>
+            <div class="unit-card">
+                <i class="fas fa-building"></i>
+                <h3>Cd. Juárez</h3>
+                <p>Unidad Académica</p>
+            </div>
+            <div class="unit-card">
+                <i class="fas fa-building"></i>
+                <h3>Parral</h3>
+                <p>Unidad Académica</p>
+            </div>
+            <div class="unit-card">
+                <i class="fas fa-building"></i>
+                <h3>Delicias</h3>
+                <p>Unidad Académica</p>
+            </div>
+            <div class="unit-card">
+                <i class="fas fa-building"></i>
+                <h3>Cuauhtémoc</h3>
+                <p>Unidad Académica</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="section-header">
+            <h2>Contacto</h2>
+        </div>
+        <div class="contact-wrapper">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('¡Gracias por comunicarte con URN Campus Chihuahua! Te contactaremos pronto.');">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" required placeholder="Tu nombre">
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" required placeholder="ejemplo@correo.com">
+
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="(614) 000-0000">
+
+                <label for="interes">Programa de Interés</label>
+                <select id="interes">
+                    <option value="licenciatura">Licenciaturas</option>
+                    <option value="posgrado">Posgrados</option>
+                    <option value="informes">Informes Generales</option>
+                </select>
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+
+            <div class="contact-info-box">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Dirección:</strong>
+                        <p>Calle Allende y 10a, Chihuahua, Chih.</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Teléfono Campus Chihuahua:</strong>
+                        <p>(614) 410-0000</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Correo Electrónico:</strong>
+                        <p>informes.chihuahua@urn.edu.mx</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Horario de Atención:</strong>
+                        <p>Lunes a Viernes: 8:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3>URN UNIVERSIDAD REGIONAL DEL NORTE</h3>
+            <p>Campus Chihuahua — Educando para el futuro con excelencia</p>
+        </div>
+        <div class="footer-credits">
+            <p>&copy; 2026 URN Universidad Regional del Norte. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PARA INTERACTIVIDAD -->
+    <script>
+        // Menú hamburguesa responsivo
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navUl = document.getElementById('nav-ul');
+
+        mobileMenu.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+        });
+
+        // Cerrar el menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navUl.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
