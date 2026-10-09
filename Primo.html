@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi ciudad Juárez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d9531e;
+            --primary-dark: #b33908;
+            --secondary: #f4a261;
+            --accent: #e76f51;
+            --yellow: #e9c46a;
+            --bg-warm: #fefae0;
+            --card-bg: #ffffff;
+            --text-dark: #2b2d42;
+            --shadow: 0 10px 25px rgba(217, 83, 30, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        /* --- ENCABEZADO --- */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            padding: 40px 20px 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            word-wrap: break-word;
+        }
+
+        .header-img-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 4px solid #ffffff;
+        }
+
+        .header-img-container img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background-color: var(--primary-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav li {
+            margin: 5px 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: var(--yellow);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ESTILOS GENERALES DE SECCIONES --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 2px dashed rgba(217, 83, 30, 0.2);
+        }
+
+        /* Títulos principales: Grandes y oscuros */
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Subtítulos: Grandes pero no tanto como h2, en cursiva */
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin: 20px 0 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- TARJETAS PARA TURISMO Y CULTURA --- */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--yellow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(217, 83, 30, 0.25);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        /* --- TABLA DE COMIDAS --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            margin: 0 auto;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            border: 1px solid #f1dca7;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fef5d9;
+        }
+
+        tr:hover {
+            background-color: #fceabb;
+        }
+
+        td strong {
+            color: var(--primary-dark);
+        }
+
+        /* --- CAJA DE LEYENDAS --- */
+        .legend-box {
+            background-color: var(--card-bg);
+            border-left: 6px solid var(--primary);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+        }
+
+        /* --- FORMULARIO --- */
+        form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 30px auto 0;
+            border: 2px solid var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 900;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30
