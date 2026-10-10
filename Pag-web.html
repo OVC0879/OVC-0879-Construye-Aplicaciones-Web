@@ -3,245 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Regional del Norte - URN</title>
+    <title>Universidad Regional del Norte (URN) - Réplica Institucional</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos Generales */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --urn-purple: #4a154b;
+            --urn-dark-purple: #2c0b2d;
+            --urn-gold: #c5a059;
+            --urn-light: #f8f9fa;
         }
 
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
             color: #333;
-            background-color: #f8f9fa;
-            line-height: 1.6;
         }
 
-        /* Barra de Navegación */
+        /* Barra de navegación */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #2e1065; /* Morado oscuro institucional */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background-color: var(--urn-dark-purple) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+        .navbar-brand img {
+            height: 40px;
         }
 
-        .navbar a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background 0.3s, color 0.3s;
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
         }
 
-        .navbar a:hover {
-            background-color: #5b21b6;
-            color: #facc15; /* Detalle amarillo/dorado */
+        .nav-link:hover, .nav-link.active {
+            color: var(--urn-gold) !important;
         }
 
-        /* Encabezado / Hero Section */
-        .header-hero {
-            margin-top: 60px; /* Compensación por barra fija */
-            background: linear-gradient(135deg, #4c1d95, #6d28d9); /* Fondo morado */
+        /* Encabezado Hero con fondo morado y texto dinámico */
+        .hero-header {
+            background: linear-gradient(135deg, rgba(74, 21, 75, 0.92), rgba(44, 11, 45, 0.95)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
             color: white;
+            padding: 90px 0 60px 0;
             text-align: center;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 5px solid var(--urn-gold);
         }
 
-        .header-hero img {
-            max-width: 220px;
-            height: auto;
-            margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 12px 20px;
-            border-radius: 8px;
+        .hero-header h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .header-hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .header-hero p {
-            font-size: 1.2rem;
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 8px 18px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .header-hero span {
-            color: #facc15;
+        .hero-header .badge-section {
+            background-color: var(--urn-gold);
+            color: var(--urn-dark-purple);
             font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 15px;
         }
 
-        /* Estilo para las Secciones */
-        .section {
-            padding: 80px 20px 60px;
-            max-width: 1100px;
-            margin: 0 auto;
-            border-bottom: 1px solid #e5e7eb;
+        /* Control de secciones SPA (Ocultar / Mostrar) */
+        .page-section {
+            display: none;
+            padding: 40px 0;
+            min-height: 500px;
         }
 
-        .section h2 {
-            font-size: 2rem;
-            color: #4c1d95;
-            margin-bottom: 15px;
-            border-left: 5px solid #7c3aed;
-            padding-left: 10px;
+        .page-section.active-section {
+            display: block;
         }
 
-        .section p {
-            font-size: 1.05rem;
-            color: #4b5563;
-        }
-
-        /* Grid para las Licenciaturas y Posgrados */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
+        /* Tarjetas institucionales */
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            border-top: 4px solid #6d28d9;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
 
-        .card h3 {
-            color: #2e1065;
-            margin-bottom: 10px;
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        /* Pie de página */
-        footer {
-            background-color: #1e1b4b;
+        .card-header {
+            background-color: var(--urn-purple);
             color: white;
+            font-weight: bold;
+            border-top-left-radius: 10px !important;
+            border-top-right-radius: 10px !important;
+        }
+
+        .btn-urn {
+            background-color: var(--urn-purple);
+            color: white;
+            border: none;
+        }
+
+        .btn-urn:hover {
+            background-color: var(--urn-dark-purple);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--urn-dark-purple);
+            color: #bbb;
+            padding: 30px 0;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+            border-top: 4px solid var(--urn-gold);
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. BARRA DE NAVEGACIÓN -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#por-que-urn">¿Por qué URN?</a></li>
-            <li><a href="#licenciaturas">Licenciaturas</a></li>
-            <li><a href="#posgrados">Posgrados</a></li>
-            <li><a href="#campus">Campus</a></li>
-            <li><a href="#servicios-escolares">Servicios escolares</a></li>
-            <li><a href="#unidades">Unidades</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <!-- 2. ENCABEZADO CON FONDO MORADO E IMAGEN -->
-    <header class="header-hero">
-        <!-- Logo de la Universidad -->
-        <img src="https://urn.edu.mx/wp-content/uploads/2021/03/logo-urn.png" alt="Logo Universidad Regional del Norte - URN">
-        <h1>Universidad Regional del Norte</h1>
-        <p>Sección actual: <span id="current-section">¿Por qué URN?</span></p>
-    </header>
-
-    <!-- 3. SECCIONES DEL DOCUMENTO (Navegación en el mismo documento) -->
-
-    <section id="por-que-urn" class="section">
-        <h2>¿Por qué URN?</h2>
-        <p>La Universidad Regional del Norte (URN) ofrece educación superior de alta calidad enfocada en el desarrollo profesional e integral de sus estudiantes, adaptándose a las exigencias laborales actuales con excelencia académica y docentes con experiencia en el sector.</p>
-    </section>
-
-    <section id="licenciaturas" class="section">
-        <h2>Licenciaturas</h2>
-        <p>Descubre nuestra amplia oferta académica a nivel profesional:</p>
-        <div class="cards-grid">
-            <div class="card">
-                <h3>Derecho</h3>
-                <p>Formación sólida en ciencias jurídicas y justicia.</p>
-            </div>
-            <div class="card">
-                <h3>Administración de Empresas</h3>
-                <p>Liderazgo, innovación y gestión de negocios.</p>
-            </div>
-            <div class="card">
-                <h3>Ingeniería Industrial</h3>
-                <p>Optimización de procesos y sistemas productivos.</p>
+    <!-- Barra de navegación fija con las 7 opciones requeridas -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" onclick="showSection('porque-urn')">
+                <span class="text-white fw-bold fs-4"><i class="fas fa-university me-2 text-warning"></i>URN</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" onclick="showSection('porque-urn')">¿Por qué URN?</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('licenciaturas')">Licenciaturas</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('posgrados')">Posgrados</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('campus')">Campus</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('servicios')">Servicios escolares</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('unidades')">Unidades</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('contacto')">Contacto</a></li>
+                </ul>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="posgrados" class="section">
-        <h2>Posgrados</h2>
-        <p>Especialízate e impulsa tu carrera profesional con nuestras maestrías y doctorados de alto nivel.</p>
-    </section>
+    <!-- Encabezado con fondo morado y indicador dinámico de sección -->
+    <header class="hero-header">
+        <div class="container">
+            <p class="text-uppercase tracking-wider mb-1 text-warning fw-semibold">Universidad Regional del Norte</p>
+            <h1>Excelencia Académica y Liderazgo</h1>
+            <div>
+                <span class="badge-section" id="currentSectionBadge">Sección: ¿Por qué URN?</span>
+            </div>
+        </div>
+    </header>
 
-    <section id="campus" class="section">
-        <h2>Campus</h2>
-        <p>Contamos con presencia en distintos puntos estratégicos del estado para brindarle acceso a la mejor educación universitaria a la comunidad regional.</p>
-    </section>
+    <!-- Contenedor Principal de Secciones (SPA) -->
+    <main class="container my-4">
 
-    <section id="servicios-escolares" class="section">
-        <h2>Servicios Escolares</h2>
-        <p>Atención a alumnos para trámites de inscripción, expedición de certificados, titulaciones, constancias y seguimiento académico.</p>
-    </section>
+        <!-- 1. ¿Por qué URN? -->
+        <section id="porque-urn" class="page-section active-section">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="fw-bold text-purple mb-3" style="color: var(--urn-purple);">¿Por qué elegir URN?</h2>
+                    <p class="lead">Formamos profesionales líderes con sentido humano, visión global y alta competitividad en el mercado laboral actual.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Planes de estudio vanguardistas y actualizados.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Docentes con amplia experiencia profesional y empresarial.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Convenios de vinculación e intercambio internacional.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Instalaciones modernas equipadas con tecnología de punta.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Estudiantes URN">
+                </div>
+            </div>
+        </section>
 
-    <section id="unidades" class="section">
-        <h2>Unidades</h2>
-        <p>Conoce nuestras Unidades Académicas extendidas para brindar programas de capacitación y modalidades mixtas o virtuales.</p>
-    </section>
+        <!-- 2. Licenciaturas -->
+        <section id="licenciaturas" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Oferta de Licenciaturas</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Administración y Negocios</div>
+                        <div class="card-body">
+                            <p class="card-text">Programas diseñados para desarrollar directores y emprendedores capaces de gestionar organizaciones globales.</p>
+                            <ul>
+                                <li>Administración de Empresas</li>
+                                <li>Mercadotecnia Estratégica</li>
+                                <li>Comercio Internacional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Ingenierías y Tecnologías</div>
+                        <div class="card-body">
+                            <p class="card-text">Formación enfocada en la innovación tecnológica, solución de problemas complejos y desarrollo de software.</p>
+                            <ul>
+                                <li>Ingeniería en Sistemas Computacionales</li>
+                                <li>Ingeniería Industrial y de Sistemas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Ciencias Sociales y Jurídicas</div>
+                        <div class="card-body">
+                            <p class="card-text">Especialízate en la defensa de la justicia, el orden normativo y el estudio del comportamiento humano.</p>
+                            <ul>
+                                <li>Derecho Corporativo</li>
+                                <li>Psicología Organizacional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="contacto" class="section">
-        <h2>Contacto</h2>
-        <p>¿Tienes dudas o deseas inscribirte? Ponte en contacto con nosotros a través de nuestros canales oficiales o visítanos directamente en tu campus más cercano.</p>
-    </section>
+        <!-- 3. Posgrados -->
+        <section id="posgrados" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Maestrías y Especialidades</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <h4>Impulsa tu desarrollo profesional al siguiente nivel</h4>
+                        <p>Nuestros posgrados están orientados a la alta dirección, especialización técnica avanzada e investigación aplicada con horarios flexibles para profesionales activos.</p>
+                        <div class="list-group mt-3">
+                            <a href="#" class="list-group-item list-group-item-action">Maestría en Administración de Negocios (MBA)</a>
+                            <a href="#" class="list-group-item list-group-item-action">Maestría en Finanzas Corporativas</a>
+                            <a href="#" class="list-group-item list-group-item-action">Especialidad en Tecnologías de la Información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- 4. Campus -->
+        <section id="campus" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Nuestros Campus</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">Campus Central</div>
+                        <div class="card-body">
+                            <p><i class="fas fa-map-marker-alt text-danger me-2"></i> Ubicado estratégicamente con amplios espacios deportivos, biblioteca digital, laboratorios avanzados y áreas de esparcimiento estudiantil.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">Campus Juárez / Norte</div>
+                        <div class="card-body">
+                            <p><i class="fas fa-map-marker-alt text-danger me-2"></i> Instalaciones modernas diseñadas para conectar la academia con el entorno industrial y comercial de la región fronteriza.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Servicios escolares -->
+        <section id="servicios" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Servicios Escolares y Trámites</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100">
+                        <i class="fas fa-file-alt fa-3x text-warning mb-3"></i>
+                        <h4>Inscripciones</h4>
+                        <p>Consulta fechas de convocatorias, requisitos de admisión y procesos de reinscripción semestral.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100">
+                        <i class="fas fa-laptop-code fa-3x text-warning mb-3"></i>
+                        <h4>Portal Alumnos</h4>
+                        <p>Accede a tu historial académico, consulta de calificaciones en línea, horarios y pagos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card p-4 h-100">
+                        <i class="fas fa-certificate fa-3x text-warning mb-3"></i>
+                        <h4>Titulación</h4>
+                        <p>Guías paso a paso, opciones de titulación por promedio, examen profesional o posgrado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Unidades -->
+        <section id="unidades" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Unidades Académicas y de Apoyo</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card p-4">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Centro de Idiomas (Certificación en inglés y otros idiomas)
+                                <span class="badge bg-secondary rounded-pill">Disponible</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Biblioteca Digital e Impresa
+                                <span class="badge bg-secondary rounded-pill">Acceso 24/7</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Incubadora de Empresas y Emprendimiento
+                                <span class="badge bg-secondary rounded-pill">Vinculación</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Bolsa de Trabajo Universitaria
+                                <span class="badge bg-secondary rounded-pill">Activa</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contacto -->
+        <section id="contacto" class="page-section">
+            <h2 class="fw-bold text-center mb-4" style="color: var(--urn-purple);">Ponte en Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo.');">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="interes" class="form-label">¿Qué programa te interesa?</label>
+                                <select class="form-select" id="interes">
+                                    <option>Licenciaturas</option>
+                                    <option>Posgrados</option>
+                                    <option>Educación Continua</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje o Duda</label>
+                                <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-urn w-100">Enviar Información</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
     <footer>
-        <p>&copy; Universidad Regional del Norte - Proyecto Escolar 5to Semestre</p>
+        <div class="container">
+            <p class="mb-1">&copy; 2026 Universidad Regional del Norte (URN). Proyecto Académico de Preparatoria.</p>
+            <p class="small text-warning">Todos los derechos reservados.</p>
+        </div>
     </footer>
 
-    <!-- JavaScript para actualizar el texto del encabezado según la sección visible -->
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script JavaScript para controlar el comportamiento SPA y actualización dinámica del texto del encabezado -->
     <script>
-        const links = document.querySelectorAll('.navbar a');
-        const currentSectionText = document.getElementById('current-section');
-
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                currentSectionText.textContent = this.textContent;
+        function showSection(sectionId) {
+            // 1. Ocultar todas las secciones
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active-section');
             });
-        });
-    </script>
 
+            // 2. Mostrar la sección seleccionada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+            }
+
+            // 3. Actualizar la clase 'active' en la barra de navegación
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 4. Actualizar el texto del indicador en el encabezado morado en tiempo real
+            const badge = document.getElementById('currentSectionBadge');
+            const sectionTitles = {
+                'porque-urn': 'Sección: ¿Por qué URN?',
+                'licenciaturas': 'Sección: Licenciaturas',
+                'posgrados': 'Sección: Posgrados',
+                'campus': 'Sección: Campus',
+                'servicios': 'Sección: Servicios escolares',
+                'unidades': 'Sección: Unidades',
+                'contacto': 'Sección: Contacto'
+            };
+            badge.textContent = sectionTitles[sectionId] || 'Sección URN';
+
+            // 5. Desplazar suavemente hacia la parte superior del contenido
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+    </script>
 </body>
-</html>
+                </html>
