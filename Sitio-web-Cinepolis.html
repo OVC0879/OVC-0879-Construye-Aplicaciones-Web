@@ -6,7 +6,7 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f0f4f8; color: #1a2b4c; text-align: center; }
     h1 { color: #0d253f; margin: 15px 0; }
-    nav { display: flex; justify-content: space-around; background: #0d253f; padding: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-around; background: #0d253f; padding: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
     nav a { text-decoration: none; font-weight: bold; color: #ffffff; padding: 8px 12px; border-radius: 4px; transition: background 0.2s; }
     nav a:hover { background: #0066cc; }
     .container { max-width: 1000px; margin: auto; padding: 20px; text-align: left; }
@@ -14,10 +14,14 @@
     h2 { color: #0d253f; border-bottom: 3px solid #0066cc; display: inline-block; padding-bottom: 4px; margin-bottom: 15px; }
     .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
     .card { background: #ffffff; border-top: 5px solid #0066cc; border-radius: 8px; padding: 12px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-    .card-img { width: 100%; height: 260px; object-fit: cover; border-radius: 6px; }
+    .card-img { width: 100%; height: 280px; object-fit: cover; border-radius: 6px; }
     .horario-tag { background: #e6f0fa; color: #0066cc; padding: 6px 10px; margin: 3px; display: inline-block; border-radius: 4px; font-weight: bold; border: 1px solid #b3d4fc; }
     button { background: #0066cc; color: #ffffff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; }
     button:hover { background: #004b99; }
+    .login-box { background: #ffffff; border: 2px solid #0066cc; border-radius: 8px; padding: 20px; max-width: 400px; margin: 15px auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .login-box label { display: block; margin-top: 10px; font-weight: bold; color: #0d253f; }
+    .login-box input { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    .login-box button { width: 100%; margin-top: 15px; }
     footer { background: #0d253f; color: #ffffff; text-align: center; padding: 15px; margin-top: 30px; }
   </style>
 </head>
@@ -28,32 +32,49 @@
     <a href="#Peliculas">Películas</a>
     <a href="#alimentos">Alimentos</a>
     <a href="#club">Club Cinépolis</a>
+    <a href="#login">Ingresar Club</a>
     <a href="#promos">Promos</a>
     <a href="#especiales">Especiales</a>
     <a href="#coleccionables">Coleccionables</a>
   </nav>
   <div class="container">
+    <section id="login">
+      <h2>Ingresa con tu Tarjeta Club Cinépolis</h2>
+      <p>Accede a tus puntos, beneficios exclusivos y promociones 2x1:</p>
+      <div class="login-box">
+        <form onsubmit="event.preventDefault(); alert('¡Sesión iniciada con éxito!');">
+          <label for="num-tarjeta">Número de Tarjeta (16 dígitos):</label>
+          <input type="text" id="num-tarjeta" placeholder="Ej. 1234 5678 9101 1121" maxlength="16" required pattern="[0-9]{16}">
+          <label for="password">Contraseña / NIP:</label>
+          <input type="password" id="password" placeholder="Ingresa tu NIP o contraseña" required>
+          <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p style="font-size: 0.85rem; margin-top: 15px; text-align: center;">
+          ¿Aún no tienes tarjeta? <a href="#club" style="color: #0066cc; font-weight: bold;">Únete a Club Cinépolis</a>
+        </p>
+      </div>
+    </section>
     <section id="cinepolis">
       <h2>Cartelera</h2>
       <p>Consulta la cartelera disponible en tu cine favorito:</p>
       <div class="cards-grid">
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBMTzA2Njg5MzY5MF5BMl5BanBnXkFtZTgwMDc5NTczNTM@._V1_FMjpg_UX1000_.jpg" alt="Spider-Man" class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Spider-Man_into_the_spider_verse.png/600px-Spider-Man_into_the_spider_verse.png" alt="Spider-Man" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500&auto=format&fit=crop';">
           <h3>Spider-Man</h3>
           <p>Clasificación: A | 117 min</p>
         </div>
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBMTk2OTg3NDU5OF5BMl5BanBnXkFtZTgwNzg4MDMyNzM@._V1_FMjpg_UX1000_.jpg" alt="Avengers" class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Avengers_Endgame_poster_text.png/600px-Avengers_Endgame_poster_text.png" alt="Avengers" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?w=500&auto=format&fit=crop';">
           <h3>Avengers: Endgame</h3>
           <p>Clasificación: B | 181 min</p>
         </div>
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBNDI1ODllOWItM2I0OC00OWI4LWExYjAtNzk0M2RjMjI3Y2E1WDkyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Batman" class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/The_Batman_symbol.svg/600px-The_Batman_symbol.svg.png" alt="Batman" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop';">
           <h3>The Batman</h3>
           <p>Clasificación: B15 | 176 min</p>
         </div>
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBMjMwMGYzNWQtN2UxMS00M2I0LWIxN2EtY2ZiYTlkNWExM2I1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Super Mario Bros" class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/600px-Mario_Series_Logo.svg.png" alt="Super Mario Bros" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop';">
           <h3>Super Mario Bros</h3>
           <p>Clasificación: A | 92 min</p>
         </div>
@@ -78,17 +99,17 @@
       <h2>Próximos Estrenos</h2>
       <div class="cards-grid">
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBN2YyNzg2MTctMDI3MS00NWJjLWI0OTItM2ZhYWQwOTcxOGI4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Misión Imposible" class="card-img">
+          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500&auto=format&fit=crop" alt="Misión Imposible" class="card-img">
           <h3>Misión Imposible 8</h3>
           <p>Próximamente</p>
         </div>
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBY2I2YWIxYWEtMDRiCi00Njg4LWI3OWItM2Y1MDlhMzA2M2I1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Avatar 3" class="card-img">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&auto=format&fit=crop" alt="Avatar 3" class="card-img">
           <h3>Avatar 3</h3>
           <p>Diciembre</p>
         </div>
         <div class="card">
-          <img src="https://m.media-amazon.com/images/M/MVBZDY2MmI5ZGQtNWNiNC00NmRiLWEwN2YtNmRkNWY2YjM1MDhhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Kung Fu Panda 4" class="card-img">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&auto=format&fit=crop" alt="Kung Fu Panda 4" class="card-img">
           <h3>Kung Fu Panda 4</h3>
           <p>Próximamente</p>
         </div>
@@ -150,4 +171,4 @@
     <p>Ortega Villanueva César | 24308051280879 | 5-J</p>
   </footer>
 </body>
-</html>
+            </html>
